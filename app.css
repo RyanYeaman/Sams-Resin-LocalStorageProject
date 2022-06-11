@@ -1,0 +1,367 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'montserrat', sans-serif;
+}
+
+
+/* navbar section */
+.navbar {
+    width: 100%;
+    margin: 0 auto;
+    position: sticky;
+    overflow: visible;
+    height: 80px;
+    top: 0;
+    left: 0;
+    background: #e8e8e8;
+    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.navbar__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+    width: 100%;
+    height: 80px;
+}
+
+.navbar__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 25px;
+    padding: 0;
+    font-size: 1.8rem;
+    font-weight: 100;
+    height: 80px;
+    text-decoration: none;
+    background-color: #fff;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    background-image: linear-gradient(to top, #000000 0%, #000000 100%);
+    background-size: 100%;
+    transition: all 0.3s ease;
+}
+
+.navbar__content {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    height: 80px;
+    width: auto;
+}
+
+.items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 0 10px 0 10px;
+    text-decoration: none;
+    background-color: #fff;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    background-image: linear-gradient(to top, #000000 0%, #000000 100%);
+    background-size: 100%;
+    transition: all 0.3s ease;
+}
+
+.navbar__btn {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    margin: 0 25px 0 10px;
+    padding: 0;
+    border: none;
+    background: none;
+    transition: all 0.3s ease;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background-color: #fff;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    background-image: linear-gradient(to top, #000000 0%, #000000 100%);
+    background-size: 100%;
+    font-size: 1.6rem;
+    transition: all 0.3s ease;
+}
+
+.links:hover,
+.button:hover,
+.navbar__logo:hover {
+    background-image: linear-gradient(to top, #000000 0%, #b028ff 100%);
+    transform: translateY(-3px);
+}
+
+/* home page section */
+
+
+#home__page {
+    width: 100%;
+    height: 90vh;
+    background-image: url("images/pawel-czerwinski-ruJm3dBXCqw-unsplash.jpg");
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.home__container h1 {
+    font-size: 2rem;
+    font-weight: 200;
+    color: #000000;
+    margin: 15px 0 50px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.home__container h4 {
+    font-size: 1.2rem;
+    font-weight: 200;
+    margin: 15px 0 50px 0;
+    display: flex;
+    justify-content: center;
+    color: #000000;
+}
+
+.home__container h2 {
+    display: flex;
+    justify-content: center;
+    color: #000000;
+    font-size: 1.2xrem;
+    font-weight: 100;
+    margin: 15px 0 50px 0;
+}
+
+.shop__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 25px;
+    outline: none;
+    background: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 0px 8px;
+    box-shadow: 5px 5px 35px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.shop__button {
+    text-decoration: none;
+    color: #1c1a1a;
+    font-size: 1.2rem;
+    font-weight: 200;
+    transition: all 0.3s ease;
+}
+
+.shop__button:hover,
+.shop__btn:hover {
+    transform: translateY(-2px);
+}
+
+.shop__btn:hover {
+    box-shadow: 5px 5px 35px rgba(0, 0, 0, 0.5);
+}
+
+.home__container {
+    padding: 0;
+    height: 100%;
+    text-align: center;
+    letter-spacing: 0.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 60%;
+}
+
+/* Product Display */
+
+.product__carousel {
+    max-width: 600px;
+
+}
+
+.product__carousel .product__display,
+.product__carousel .product__display--hidden {
+    display: none;
+    height: auto;
+    background: #e8e8e8;
+    margin: 5px 50px;
+    border-radius: 10px;
+    padding: 25px 25px;
+    box-shadow: 5px 5px 35px rgba(0, 0, 0, 0.3);
+}
+
+.product__carousel .product__display--visible{
+    display: block;
+}
+
+.description__container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 8em;
+}
+
+.product__img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 5px 5px 35px rgba(0, 0, 0, 0.5);
+}
+
+#product__description {
+    margin: 15px 10px;
+}
+
+#product__description h2,
+h4,
+p {
+    font-weight: 100;
+    letter-spacing: 0.3rem;
+    padding: 2px 0;
+}
+
+.display__btn {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    outline: none;
+    border: none;
+    background-color: #f0c2fe;
+    padding: 2px 5px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.display__button {
+    text-decoration: none;
+    color: #000000;
+    transition: all 0.3s ease;
+}
+
+.display__btn:hover,
+.display__button:hover {
+    transform: translateY(-2px)
+}
+
+.display__btn:hover {
+    box-shadow: 5px 5px 35px rgba(0, 0, 0, 0.2);
+}
+
+.swipe__btn {
+    display: flex;
+    margin: 10px 25px;
+}
+
+#swipe__right,
+#swipe__left {
+    margin: 10px auto;
+    padding: 5px 5px;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    border: none;
+    box-shadow: 5px 5px 35px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.fa-caret-left,
+.fa-caret-right {
+    transition: all 0.3s ease;
+}
+
+#swipe__right:hover,
+#swipe__left:hover {
+    box-shadow: 5px 5px 35px rgba(0, 0, 0, 0.5);
+    transform: translateY(-2px);
+}
+.fa-caret-left:hover,
+.fa-caret-right:hover {
+    transform: translateY(-2px);
+}
+
+
+.product__display--visible {
+    animation: fadeVisibilty 1s;
+    transition: all 0.3s ease;
+}
+@keyframes fadeVisibilty{
+    0%{
+        opacity: 0;
+    } 100% {
+        opacity: 1;
+        transform: opacity linear;
+    }
+}
+
+.product__carousel .product__display:hover {
+    transform: translateY(-2px);
+    box-shadow: 5px 5px 35px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 960px) {
+    #home__page {
+        width: 100%;
+        height: 90vh;
+        background-image: url("images/pawel-czerwinski-ruJm3dBXCqw-unsplash.jpg");
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+    .shop__btn {
+        display: none;
+    }
+
+    .product__carousel .product__display {
+        max-width: 300px;
+        width: 100%;
+    }
+
+    .home__container h4 {
+        display: none;
+    }
+
+    .home__container {
+        margin-top: 10px;
+    }
+
+    .product__display--visible h2 {
+        animation: fadeVisibilty 1s;
+        transition: all 0.3s ease;
+        display: none;
+    }
+
+    .description__container {
+        height: auto;
+        text-align: center;
+    }
+
+    .product__display {
+        padding: 10px;
+    }
+}
+
