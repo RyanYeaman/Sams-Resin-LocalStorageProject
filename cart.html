@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cart.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"
+        integrity="sha384-/frq1SRXYH/bSyou/HUp/hib7RVN1TawQYja658FEOodR/FQBKVqT9Ol+Oz3Olq5" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="app.html" class="navbar__logo">Sams Resin</a>
+            <div class="navbar__toggle" id="mobile__menu">
+                <span class="bars"></span> <span class="bars"></span>
+                <span class="bars"></span>
+            </div>
+            <ul class="navbar__content">
+                <li class="items"><a href="app.html" class="links">Home</a></li>
+                <li class="items"><a href="product.html" class="links">Products</a< /li>
+                <li class="items"><a href="/" class="links">Contact</a></li>
+                <button class="navbar__btn"><a class="button" href="/"><i `
+                            class="fa-solid fa-basket-shopping"></i></a></button>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="cart__page">
+
+        <hr>
+
+        <div class="cart__container">
+            <div class="cart__row">
+                <img class="product__img"
+                    src="https://images.unsplash.com/photo-1640385034419-9634b8b01c71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80"
+                    alt="">
+                <div class="description__container">
+                    <div id="product__description">
+                        <h4>Ocean Table</h4>
+                        <p class="total__price">$299.99</p>
+                        <input class="item__quantity" type="number" value="1">
+                        <button class="remove__btn"><a class="remove__button" href="#">Remove</a></button>
+                    </div>
+                </div>
+            </div>
+            <div class="cart__row">
+                <img class="product__img"
+                    src="https://images.unsplash.com/photo-1640385034419-9634b8b01c71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80"
+                    alt="">
+                <div class="description__container">
+                    <div id="product__description">
+                        <h4>Ocean Table</h4>
+                        <p class="total__price">$299.99</p>
+                        <input class="item__quantity" type="number" value="1">
+                        <button class="remove__btn"><a class="remove__button" href="#">Remove</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="check__out--container">
+            <button class="check__out--btn"><a class="check__out--button" href="#">Check Out</a></button>
+            <h2 id="total__amount">TOTAL: $0.00</h2>
+        </section>
+
+        <hr>
+
+    </section>
+    <script src="product.js"></script>
+</body>
+
+</html>
