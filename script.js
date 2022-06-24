@@ -50,3 +50,13 @@ function previousProduct() {
 
     updateDisplayCarousel();
 }
+
+
+const menu = document.querySelector('#mobile__menu');
+const mainMenu = document.querySelector('.navbar__content')
+
+menu.addEventListener('click', () => {
+    menu.classList.toggle('is-active');
+    mainMenu.classList.toggle('active');
+})
+

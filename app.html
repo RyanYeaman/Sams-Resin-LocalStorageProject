@@ -17,17 +17,16 @@
 <body>
     <nav class="navbar">
         <div class="navbar__container">
-            <a href="/" class="navbar__logo">Sams Resin</a>
-            <div class="navbar__toggler" id="mobile__menu">
-                <span class="bars"></span>
-                <span class="bars"></span>
+            <a href="app.html" class="navbar__logo">Sams Resin</a>
+            <div class="navbar__toggle" id="mobile__menu">
+                <span class="bars"></span> <span class="bars"></span>
                 <span class="bars"></span>
             </div>
             <ul class="navbar__content">
-                <li class="items"><a href="/" class="links">Home</a></li>
-                <li class="items"><a href="/" class="links">Products</a< /li>
+                <li class="items"><a href="app.html" class="links">Home</a></li>
+                <li class="items"><a href="product.html" class="links">Products</a< /li>
                 <li class="items"><a href="/" class="links">Contact</a></li>
-                <button class="navbar__btn"><a class="button" href="/"><i
+                <button class="navbar__btn"><a class="button" href="cart.html"><i `
                             class="fa-solid fa-basket-shopping"></i></a></button>
             </ul>
         </div>
@@ -40,6 +39,7 @@
             <h2>Every Product Is Unique</h2>
             <button class="shop__btn"><a class="shop__button" href="#">Shop</a></button>
         </div>
+        <h4 class="new__arrivals">New Arrivals</h4>
         <div class="product__carousel">
             <div class="product__display product__display--visible">
                 <img class="product__img"
@@ -65,11 +65,12 @@
                         <p>$149.99</p>
                         <button class="display__btn"><a class="display__button" href="#">Add To Cart</a></button>
                     </div>
-                    
+
                 </div>
             </div>
             <div class="product__display product__display--hidden">
-                <img class="product__img" src="https://i.etsystatic.com/23932640/r/il/278679/3378396737/il_1588xN.3378396737_sshj.jpg" alt="">
+                <img class="product__img"
+                    src="https://i.etsystatic.com/23932640/r/il/278679/3378396737/il_1588xN.3378396737_sshj.jpg" alt="">
                 <div class="description__container">
                     <div id="product__description">
                         <h2>New Collection</h2>
@@ -80,9 +81,10 @@
                 </div>
             </div>
             <div class="swipe__btn">
-                <button id="swipe__left" ><i class="fa-solid fa-caret-left"></i></button>
-                <button id="swipe__right" ><i class="fa-solid fa-caret-right"></i></button>
+                <button id="swipe__left"><i class="fa-solid fa-caret-left"></i></button>
+                <button id="swipe__right"><i class="fa-solid fa-caret-right"></i></button>
             </div>
+            <h2 id="unique">Every Product Is Unique</h2>
         </div>
     </section>
 
