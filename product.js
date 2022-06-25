@@ -46,11 +46,16 @@ function addToCartClicked(event) {
 }
 
 function addItemToCart(cartDisplay, img, h4, price, removeButton) {
-    const saveToLocalStorage = () => {
-        localStorage.setItem('Display', cartDisplay)
-    }
-
-    saveToLocalStorage.addEventListener('click', saveToLocalStorage)
+    // you should make ids for the items, and then just save the id of the item
+    // and the quantity in local storage for example:
+    // let cart = localStorage.getItem("cart");
+    // if(!cart) {
+    //   localStorage.setItem("cart", JSON.stringify([{id: /*itemID*/, quantity: /*itemQuantity*/}]))
+    // }else {
+    //   cart = JSON.parse(cart);
+    //   cart.push({id: /*itemID*/, quantity: /*itemQuantity*/});
+    //   localStorage.setItem("cart", cart);
+    // }
 }
 
 // function addItemToCart(cartDisplay, img, h4, price, removeButton) {
