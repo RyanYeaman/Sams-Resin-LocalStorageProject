@@ -35,20 +35,36 @@ function ready() {
 function addToCartClicked(event) {
     let button = event.target
     let shopItemPropertys = button.parentElement.parentElement.parentElement.parentElement
-    let cartDisplay = shopItemPropertys.getElementsByClassName('product__page--display')
     let h4 = shopItemPropertys.getElementsByClassName('title')[0].innerText
     let img = shopItemPropertys.getElementsByClassName('product__img')[0].src
     let price = shopItemPropertys.getElementsByClassName('price')[0].innerText
-    let removeButton = shopItemPropertys.getElementsByClassName('remove__button')
-    let cartItem = cartDisplay + img + h4 + price + removeButton
+    let cartItem = {cartItemImg: img, cartItemH4: h4, cartItemPrice: price}
     saveToLocalStorage(cartItem)
 }
 function saveToLocalStorage(cartItem) {
-    let cartRow = document.getElementsByClassName('cart__row')
+    let cartRow = document.getElementsByClassName('cart__container')
+    let newCartRow = document.createElement('div')
+    newCartRow.classList.add('cart__row')
+  
     localStorage.setItem("cartItem", JSON.stringify(cartItem))
-    let extractItem = localStorage.getItem('cartItem')
-    JSON.parse(extractItem)
-    cartRow.append(extractItem)
+    let extractItem = JSON.parse(window.localStorage.getItem('cartItem'))
+  
+    console.log(extractItem)
+
+    newCartRow.innerHTML = `
+            <img class="product__img"
+                src="${extractItem.cartItemImg}'
+            alt="">
+            <div class="description__container">
+                <div id="product__description">
+                    <h4>${extractItem.cartItemH4}</h4>
+                    <p class="total__price">${extractItem.cartItemPrice}</p>
+                    <input class="item__quantity" type="number" value="1">
+                    <button class="remove__btn"><a class="remove__button" href="#">Remove</a></button>
+                </div>
+            </div> `
+    console.log(newCartRow)
+    cartRow.appendChild(newCartRow)
 }
 
 
