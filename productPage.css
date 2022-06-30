@@ -1,3 +1,8 @@
+.product__img {
+    max-height: 200px;
+    object-fit: cover;
+}
+
 @media (max-width: 975px) {
     .product__page--display {
         max-width: 200px;
@@ -9,9 +14,6 @@
 
 
 }
-
-
-@media (max-width: 975px) {}
 
 
 @media (min-width: 320px) and (max-width: 480px) {

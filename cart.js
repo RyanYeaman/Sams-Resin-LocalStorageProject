@@ -23,14 +23,12 @@ function ready() {
     for (let inputs of quantityInputs) {
         inputs.addEventListener('change', quantityChanged)
     }
-    
-    
 }
 
 //this function removes items from the cart and updates the total price when removing items from the cart.
 function removeItem(event) {
     const buttonClicked = event.target
-    buttonClicked.parentElement.parentElement.parentElement.remove(document.getElementsByClassName('cart__row'))
+    buttonClicked.parentElement.parentElement.parentElement.remove(document.getElementsByClassName('cart__row')[0])
     updateTotal()
 }
 
@@ -71,12 +69,10 @@ function extractCartItem(cartItem) {
                 src="${cartItem.cartItemImg}'
             alt="">
             <div class="description__container">
-                <div id="product__description">
-                    <h4>${cartItem.cartItemH4}</h4>
-                    <p class="total__price">${cartItem.cartItemPrice}</p>
-                    <input class="item__quantity" type="number" value="1">
-                    <button class="remove__btn"><a class="remove__button" href="#">Remove</a></button>
-                </div>
+                <h4>${cartItem.cartItemH4}</h4>
+                <p class="total__price">${cartItem.cartItemPrice}</p>
+                <input class="item__quantity" type="number" value="1">
+                <button class="remove__btn"><a class="remove__button" href="#">Remove</a></button>
             </div> `
     cartRow.append(newCartRow)
     updateTotal()
