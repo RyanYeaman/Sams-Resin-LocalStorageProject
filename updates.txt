@@ -1,0 +1,18 @@
+product.html 
+- added span to line 28 with id='cart-qty'
+
+product.js 
+- changed saveToLocalStorage function (line 33) (see file for comments)
+- starting at line 21, added functionality to update cart quantity in menu (see file for comments)
+
+cart.html 
+- added span to line 29 with id='cart-qty'
+
+cart.js 
+- starting at line 27, added functionality to update cart quantity in menu (see file for comments)
+- added id='cart-container' to line 38
+- added removeAndUpdateCart function starting at line 128
+
+General note about cart.html & cart.js updates:
+- There are two ways to handle the cart added to these pages.  See cart.js for detailed comments related to the functions.
+- cart.html just has an extra, hr, div and h2 (for total) to show the second example of handling the cart
