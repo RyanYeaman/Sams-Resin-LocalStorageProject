@@ -23,6 +23,14 @@ function ready() {
     for (let inputs of quantityInputs) {
         inputs.addEventListener('change', quantityChanged)
     }
+
+    //checking for exisiting cart.
+    const existingCart = JSON.parse(localStorage.getItem("cart"));
+
+	if (existingCart) {
+		// set cart quantity
+		document.getElementById("cart-qty").innerHTML = `${existingCart.length}`;
+	}
 }
 
 //this function removes items from the cart and updates the total price when removing items from the cart.
