@@ -25,6 +25,8 @@ function ready() {
 		// set cart quantity
 		document.getElementById("cart-qty").innerHTML = `${existingCart.length}`;
 	}
+
+	setProducts();
 }
 
 //this function will allow us add items into the our localStorageDB to pass over to our cart page.
@@ -52,4 +54,31 @@ function saveToLocalStorage(cartItem) {
 	console.log(cartItem, JSON.parse(localStorage.getItem("cart")));
 	// update cart quantity number
 	document.getElementById("cart-qty").innerHTML = `${existingCart.length}`;
+}
+
+// example setting products using data in another file
+function setProducts() {
+	const productContainer = document.querySelector(".product__page--container");
+
+	for (let i = 0; i < products.length; i++) {
+		productContainer.insertAdjacentHTML(
+			"beforeend",
+			`<div id="product-${i}" class="product__page--display">
+				<img class='product__img' src=${products[i].cartItemImg} alt='' />
+				<div class="description__container--product">
+				<div id="product__description product__page--description">
+					<h4>${products[i].cartItemH4}</h4>
+					<p class='total__price'>${products[i].cartItemPrice}</p>
+					<button class="display__btn product__page--btn"><a class="display__button" href="#">Add
+					To Cart</a></button>
+					</div>
+				</div>
+			</div>`
+		);
+
+		const button = document.getElementById(`product-${i}`).querySelector('div button');
+
+		// the main point here is that we can then just save the data and bypass having to derive it from the DOM
+		button.addEventListener("click", () => saveToLocalStorage(products[i]));
+	}
 }

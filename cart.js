@@ -89,7 +89,6 @@ function extractCartItem(cartItem) {
 	updateTotal();
 }
 
-
 // FIRST VERSION OF HANDLING CART ---- lists out all added items in the cart individually, but does track quantity under the same item if updated in cart
 // Note:  I did include a second set of functions that consolidate the same-named items under one entry below just incase that is more ideal to how this cart should work.
 function setInitialCart() {
@@ -104,8 +103,8 @@ function setInitialCart() {
 		cartContainer.replaceChildren("");
 		// used this kind of for loop for the index number specifically
 		for (let i = 0; i < existingCart.length; i++) {
-            // added .qty on cart objects in other functions, so this is multiplying by that or 1 if .qty does not exist
-			total += (Number.parseFloat(existingCart[i].cartItemPrice.slice(1)) * (existingCart[i]?.qty ?? 1));
+			// added .qty on cart objects in other functions, so this is multiplying by that or 1 if .qty does not exist
+			total += convertPriceType(existingCart[i].cartItemPrice) * (existingCart[i]?.qty ?? 1);
 			// add id attribute, interpolated info where needed, and added onclick to the remove button
 			cartContainer.insertAdjacentHTML(
 				"beforeend",
@@ -113,7 +112,7 @@ function setInitialCart() {
                     <img class='product__img' src=${existingCart[i].cartItemImg} alt='' />
                     <div class='description__container'>
                         <h4>${existingCart[i].cartItemH4}</h4>
-                        <p class='total__price'>${existingCart[i].cartItemPrice}</p>
+                        <p class='total__price'>${typeof existingCart[i].cartItemPrice === "string" ? existingCart[i].cartItemPrice : "$".concat(existingCart[i].cartItemPrice)}</p>
                         <input id='cart-item-${i}-input' class='item__quantity' type='number' min='1' value='${existingCart[i]?.qty ?? 1}' />
                         <button class='remove__btn' onclick="removeAndUpdateCart(${i})">
                             <a class='remove__button' href='#'>
@@ -144,7 +143,7 @@ function removeAndUpdateCart(index) {
 	// console.log(JSON.parse(localStorage.getItem("cart")));
 
 	for (let product of existingCart) {
-		updatedTotal += Number.parseFloat(product.cartItemPrice.slice(1));
+		updatedTotal += convertPriceType(product.cartItemPrice);
 	}
 
 	// remove item to from DOM
@@ -160,14 +159,14 @@ function modifyCart(i, value) {
 	let total = 0;
 	let quantity = 0;
 	const existingCart = JSON.parse(localStorage.getItem("cart"));
-    // update quantity on cart item 
+	// update quantity on cart item
 	existingCart[i].qty = value;
 	// persist
 	localStorage.setItem("cart", JSON.stringify(existingCart));
 
 	for (const item of existingCart) {
-		total += Number.parseFloat(item.cartItemPrice.slice(1)) * (item?.qty ?? 1);
-        // the + in front of (item?... in the next line forces a type conversion if possible (i.e. from string to number, so we don't get a NaN)
+		total += convertPriceType(item.cartItemPrice) * (item?.qty ?? 1);
+		// the + in front of (item?... in the next line forces a type conversion if possible (i.e. from string to number, so we don't get a NaN)
 		quantity += +(item?.qty ?? 1);
 	}
 
@@ -177,13 +176,11 @@ function modifyCart(i, value) {
 	document.getElementById("cart-qty").innerHTML = `${quantity}`;
 }
 
-
 // SECOND VERSION OF HANDLING CART  --  example where duplicate-named cart items are consolidated under one entry.
 // --------
-// Note: this is not meant to work in conjunction with the above version of handling the cart.... It initially sets values based off of above cart's local storage, 
-// but then tracks it's own values seperately, so it's values can become out of sync with the first implementation of cart items. I included it because I wasn't sure 
-// exactly how the cart should behave, but thought it may be useful to include anyway. 
-
+// Note: this is not meant to work in conjunction with the above version of handling the cart.... It initially sets values based off of above cart's local storage,
+// but then tracks it's own values seperately, so it's values can become out of sync with the first implementation of cart items. I included it because I wasn't sure
+// exactly how the cart should behave, but thought it may be useful to include anyway.
 // --------
 
 function consolidateCart() {
@@ -197,25 +194,26 @@ function consolidateCart() {
 	const existingCart = JSON.parse(localStorage.getItem("cart"));
 
 	if (existingCart) {
-        // checking each value of cart 
+		// checking each value of cart
 		for (const item of existingCart) {
-            // look to see if our consolidated array has a matching entry
+			// look to see if our consolidated array has a matching entry
 			const existingIndex = consolidated.findIndex((entry) => entry.cartItemH4 === item.cartItemH4);
-            // if existing index is found (i.e. will not a number greater than -1), add item quantity or 1
+			// if existing index is found (i.e. will not a number greater than -1), add item quantity or 1
 			if (existingIndex > -1) {
 				consolidated[existingIndex].qty += +(item?.qty ?? 1);
-			} else {  // push "new" type/named object to consolidated
+			} else {
+				// push "new" type/named object to consolidated
 				consolidated.push({ ...item, qty: +(item?.qty ?? 1) });
 			}
 
-            // add to quantity & total sums
+			// add to quantity & total sums
 			quantity += +(item?.qty ?? 1);
-			total += Number.parseFloat(item.cartItemPrice.slice(1)) * (item?.qty ?? 1);
+			total += convertPriceType(item.cartItemPrice) * (item?.qty ?? 1);
 		}
 
 		// set consolidated values to localStorage (used different name to keep seperate for example)
 		localStorage.setItem("consolidatedCart", JSON.stringify(consolidated));
-		// populate consolidated example in another div below the first cart container 
+		// populate consolidated example in another div below the first cart container
 		for (let i = 0; i < consolidated.length; i++) {
 			const product = consolidated[i];
 			cartContainer.insertAdjacentHTML(
@@ -224,7 +222,7 @@ function consolidateCart() {
 		            <img class='product__img' src=${product.cartItemImg} alt='' />
 		            <div class='description__container'>
 		                <h4>${product.cartItemH4}</h4>
-		                <p class='total__price'>${product.cartItemPrice}</p>
+		                <p class='total__price'>${typeof product.cartItemPrice === "string" ? product.cartItemPrice : "$".concat(product.cartItemPrice)}</p>
 		                <input id='product-${i}-input' class='item__quantity' type='number' min='1' value='${product.qty}' />
 		                <button class='remove__btn' onclick="removeConsolidated(${i})">
 		                    <a class='remove__button' href='#'>
@@ -239,7 +237,7 @@ function consolidateCart() {
 			input.addEventListener("change", () => modifyConsolidated(i, input.value));
 		}
 
-        // update total in DOM (added value next to original value) -- should match cart value initially
+		// update total in DOM (added value next to original value) -- should match cart value initially
 		totalSpan.innerHTML = `${total.toFixed(2)}`;
 	}
 }
@@ -257,7 +255,7 @@ function modifyConsolidated(index, value) {
 
 	// get updated numbers
 	for (const item of existingConsolidated) {
-		total += Number.parseFloat(item.cartItemPrice.slice(1)) * item.qty;
+		total += convertPriceType(item.cartItemPrice) * (item?.qty ?? 1);
 		quantity += +item.qty;
 	}
 
@@ -281,7 +279,7 @@ function removeConsolidated(i) {
 
 	// get updated calculations
 	for (const item of existingConsolidated) {
-		total += Number.parseFloat(item.cartItemPrice.slice(1)) * item.qty;
+		total += convertPriceType(item.cartItemPrice) * item?.qty ?? 1;
 		quantity += item.qty;
 	}
 
@@ -291,4 +289,17 @@ function removeConsolidated(i) {
 	totalSpan.innerHTML = `${total.toFixed(2)}`;
 	// update cart quantity  --- cart quantity overrides so may be out of sync from other cart example
 	document.getElementById("cart-qty").innerHTML = `${quantity}`;
+}
+
+function clearCart() {
+	localStorage.clear();
+	document.querySelectorAll(".cart__container").forEach((el) => el.replaceChildren(""));
+	document.getElementById("cart-qty").innerHTML = "0";
+	document.querySelector("#total__amount span").innerHTML = "0.00";
+	document.querySelector("#total__consolidated span").innerHTML = "0.00";
+}
+
+function convertPriceType(price) {
+	//if price is a string, convert using parseFloat, otherwise return price
+	return typeof price === "string" ? Number.parseFloat(price.slice(1)) : price;
 }
