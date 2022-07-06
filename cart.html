@@ -25,18 +25,18 @@
             <ul class="navbar__content">
                 <li class="items"><a href="app.html" class="links">Home</a></li>
                 <li class="items"><a href="product.html" class="links">Products</a< /li>
-                <li class="items"><a href="/" class="links">Contact</a></li>
-                <button class="navbar__btn"><a class="button" href="/"><i `
+                <li class="items"><a href="#" class="links">Contact</a></li>
+                <button class="navbar__btn"><a class="button" href="/"><span id="cart-qty"
+                            style="font-size:1rem;margin-right:5px;"></span><i `
                             class="fa-solid fa-basket-shopping"></i></a></button>
             </ul>
         </div>
     </nav>
 
     <section id="cart__page">
-
         <hr>
 
-        <div class="cart__container">
+        <div id="cart-container" class="cart__container">
             <div class="cart__row">
                 <img class="product__img"
                     src="https://images.unsplash.com/photo-1640385034419-9634b8b01c71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80"
@@ -61,9 +61,15 @@
             </div>
         </div>
 
+        <hr>
+
+        <div id="consolidated-cart-example" class="cart__container"></div>
+
         <section class="check__out--container">
             <button class="check__out--btn"><a class="check__out--button" href="#">Check Out</a></button>
-            <h2 id="total__amount">TOTAL: $0.00</h2>
+            <h2 id="total__amount">TOTAL: $<span>0.00</span></h2>
+            <h2 id="total__consolidated">CONSOLIDATED TOTAL: $<span>0.00</span></h2>
+            <button style="color: white; background-color: rgba(255, 0, 0, .5); border-radius: 4px; outline: none; border: 0px; white-space: nowrap; padding: 0 1.2rem; margin-left: 12px; max-height: 44px;" type="button" onclick="clearCart()">Clear Cart</button>
         </section>
 
         <hr>

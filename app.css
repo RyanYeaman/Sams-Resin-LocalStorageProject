@@ -6,7 +6,8 @@
 }
 
 body{
-    height: 100vh;
+    height: 100%;
+    width: 100%;
 }
 
 
@@ -344,12 +345,13 @@ h2#unique {
 #home__product--page {
     max-width: auto;
     width: 100%;
-    height: initial;
+    height: 100%;
     background-image: url("images/pawel-czerwinski-ruJm3dBXCqw-unsplash.jpg");
     background-size: cover;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-direction: column
 }
 
 
