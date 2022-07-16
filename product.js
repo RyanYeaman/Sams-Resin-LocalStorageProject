@@ -43,7 +43,7 @@ function saveToLocalStorage(cartItem) {
 
     localStorage.setItem("cart", JSON.stringify(exisitingCart ? [...exisitingCart, cartItem] : [cartItem]));
 
-    console.log(exisitingCart)
+    console.log(cartItem, JSON.parse(localStorage.getItem("cart")));
 
     document.getElementById("cart-qty").innerHTML = `${exisitingCart.length}`;
 }
