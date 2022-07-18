@@ -107,9 +107,9 @@ function setIntialCart() {
         cartContainer.insertAdjacentHTML(
             "beforeend",
             `<div id="product-${i}" class="cart__row">
-                <img class="product__img" src="${[i].cartItemImg}" alt="">
+                <img class="product__img" src="${product.cartItemImg}" alt="">
                 <div class="description__container">
-                    <h4>Ocean Table</h4>
+                    <h4>${product.cartItemH4}</h4>
                     <p class="total__price">${typeof product.cartItemPrice === "string" ? product.cartItemPrice : "$".concat(product.cartItemPrice)}}</p>
                     <input id="product-${i}-input" class="item__quantity" type="number" value="${product.qty}" />
                     <button class="remove__btn" onclick="removeConsolidated(${i})">
@@ -119,7 +119,7 @@ function setIntialCart() {
                 </div>`
         );
         // assign the input element inside of a variable
-        const input = documetn.getElementById(`product-${i}-input`);
+        const input = document.getElementById(`product-${i}-input`);
         // add eventLisener to listen for any change in value.
         input.addEventListener("change", () => modifyConsolidated(i, input.value));
     }
