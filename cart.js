@@ -98,7 +98,7 @@ function setIntialCart() {
 
 
         // we want to set the consolidated cart into the localStorage.
-        localStorage.setItem("consolidatedCart", JSON.stringify(consolidated));
+        localStorage.setItem("cart", JSON.stringify(consolidated));
 
 
         for (let i = 0; i < consolidated.length; i++) {
@@ -138,13 +138,13 @@ function modifyConsolidated(index, value) {
 
     //use the DOM to get total pice and consolidatedCart
     const totalPrice = document.querySelector("#total__amount span");
-    const existingConsolidated = JSON.parse(localStorage.getItem("consolidatedCart"));
+    const existingConsolidated = JSON.parse(localStorage.getItem("cart"));
 
     //make the items.qty inside of the existingConsolidated equal value 
     existingConsolidated[index].qty = value;
 
     //persist to the localStorage
-    localStorage.setItem("consolidatedCart", JSON.stringify(existingConsolidated));
+    localStorage.setItem("cart", JSON.stringify(existingConsolidated));
 
     //loop over the all the existing items in existingConsolidated 
     for (const items of existingConsolidated) {
@@ -165,11 +165,13 @@ function removeConsolidated(i) {
 
     const totalPrice = document.querySelector("#total__amount span");
 
-    const existingCart = JSON.parse(localStorage.getItem("consolidatedCart"));
+    const existingCart = JSON.parse(localStorage.getItem("cart"));
 
-    existingCart.slice(i, 1);
-
-    localStorage.setItem("consolidatedCart", JSON.stringify(existingCart));
+    if (existingCart) {
+        existingCart.slice(i, 1);
+        
+        localStorage.setItem("cart", JSON.stringify(existingCart))
+    }
 
     for (const items of existingCart) {
         total += Number.parseFloat(items.cartItemPrice.slice(1) * items?.qty ?? 1);
