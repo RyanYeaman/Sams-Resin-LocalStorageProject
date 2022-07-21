@@ -167,11 +167,9 @@ function removeConsolidated(i) {
 
     const existingCart = JSON.parse(localStorage.getItem("cart"));
 
-    if (existingCart) {
-        existingCart.slice(i, 1);
-        
-        localStorage.setItem("cart", JSON.stringify(existingCart))
-    }
+    existingCart.slice(i, 1);
+
+    localStorage.setItem("cart", JSON.stringify(existingCart));
 
     for (const items of existingCart) {
         total += Number.parseFloat(items.cartItemPrice.slice(1) * items?.qty ?? 1);
