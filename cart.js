@@ -13,17 +13,6 @@ if (document.readyState == 'loading') {
 }
 
 function ready() {
-    // let removeItemButton = document.getElementsByClassName('remove__btn')
-    // for (let i = 0; i < removeItemButton.length; i++) {
-    //     const button = removeItemButton[i]
-    //     button.addEventListener('click', removeItem)
-    // }
-
-    // let quantityInputs = document.querySelectorAll('.item__quantity')
-    // for (let inputs of quantityInputs) {
-    //     inputs.addEventListener('change', quantityChanged)
-    // }
-
     //checking for existing cart.
     const existingCart = JSON.parse(localStorage.getItem("cart"));
 
@@ -34,39 +23,6 @@ function ready() {
 
     setIntialCart()
 }
-
-//this function removes items from the cart and updates the total price when removing items from the cart.
-// function removeItem(event) {
-//     const buttonClicked = event.target
-//     buttonClicked.parentElement.parentElement.parentElement.remove(document.getElementsByClassName('cart__row')[0])
-//     updateTotal()
-// }
-
-// //this function allows the total price to be updated when the quantity ipout is updated 
-// function quantityChanged(event) {
-//     let input = event.target
-//     if (isNaN(input.value) || input.value <= 0) {
-//         input.value = 1
-//     }
-//     updateTotal()
-// }
-
-// This Function updates the total Price of the cart.
-// function updateTotal() {
-//     const cartContainer = document.getElementsByClassName('cart__container')[0]
-//     const cartRow = cartContainer.getElementsByClassName('cart__row')
-//     let totalPrice = 0
-//     for (let cartRows of cartRow) {
-//         let totalCartPrice = cartRows.getElementsByClassName('total__price')[0]
-//         let quantityElement = cartRows.getElementsByClassName('item__quantity')[0]
-//         let price = parseFloat(totalCartPrice.innerText.replace('$', ''))
-//         let quantity = quantityElement.value
-//         totalPrice = totalPrice + (price * quantity)
-//     }
-
-//     document.getElementById('total__amount').innerText = 'TOTAL:' + ' ' + '$' + totalPrice.toFixed(2)
-// }
-
 
 function setIntialCart() {
     const cartContainer = document.getElementById("cart-container");

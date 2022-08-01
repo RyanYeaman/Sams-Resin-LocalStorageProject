@@ -79,6 +79,8 @@ function ready() {
     if (exisitingCart) {
         document.getElementById("cart-qty").innerHTML = `${exisitingCart.length}`;
     }
+
+    updateCartQty()
 }
 
 //this function will allow us add items into the our localStorageDB to pass over to our cart page.
@@ -102,8 +104,23 @@ function saveToLocalStorage(cartItem) {
     document.getElementById("cart-qty").innerHTML = `${exisitingCart.length}`;
 }
 
-//Contact Box Functionailty
+//This function will update the cart-qty.
+function updateCartQty() {
+    let quantity = 0;
 
+    const cartQty = document.querySelector("#cart-qty");
+
+    const exisitingCart = JSON.parse(localStorage.getItem("cart"));
+    
+    if(exisitingCart) {
+        for(const items of exisitingCart) {
+            quantity += +(items.qty);
+        }
+    }
+    cartQty.innerHTML = `${quantity}`
+}
+
+//Contact Box Functionailty
 const contact = document.getElementById("contact-button");
 const contactInfo = document.getElementById("contact-box");
 const contactExitButton = document.querySelector(".fa-xmark");
