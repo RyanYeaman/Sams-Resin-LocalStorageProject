@@ -25,20 +25,34 @@
             <ul class="navbar__content">
                 <li class="items"><a href="app.html" class="links">Home</a></li>
                 <li class="items"><a href="product.html" class="links">Products</a< /li>
-                <li class="items"><a href="/" class="links">Contact</a></li>
-                <button class="navbar__btn"><a class="button" href="cart.html"><i `
-                            class="fa-solid fa-basket-shopping"></i></a></button>
+                <li class="items"><a href="#" id="contact-button" class="links">Contact</a></li>
+                <button class="navbar__btn"><a class="button" href="cart.html"><span id="cart-qty"></span><i class="fa-solid fa-basket-shopping"></i></a></button>
             </ul>
         </div>
     </nav>
 
+
     <section id="home__page">
+
+        <section id="contact-box" class="contact-info-hidden"> 
+            <i class="fa-solid fa-xmark"></i>
+            <ul id="contact-info">
+                <h4 id="contact-list">Contact Info</h4>
+                <li id="contact-number">1-800-sam-resin</li>
+                <li id="contact-email">SamsResinShop@gmail.com</li>
+                <h4 id="social-media-list">Social Media</h4>
+                <li id="tik-tok-account"><i class="fa-brands fa-instagram"></i> @SamsResinShop</li>
+                <li id="instagram-account"><i class="fa-brands fa-tiktok"></i> @SamsResinShop</li>
+            </ul>
+        </section>
+
         <div class="home__container">
             <h1>Welcome To My Resin Shop</h1>
             <h4>Hand Crafted Resin Art</h4>
             <h2>Every Product Is Unique</h2>
-            <button class="shop__btn"><a class="shop__button" href="#">Shop</a></button>
+            <button class="shop__btn"><a class="shop__button" href="product.html">Shop</a></button>
         </div>
+
         <h4 class="new__arrivals">New Arrivals</h4>
         <div class="product__carousel">
             <div class="product__display product__display--visible">
@@ -48,8 +62,8 @@
                 <div class="description__container">
                     <div id="product__description">
                         <h2>New Collection</h2>
-                        <h4>Ocean Table</h4>
-                        <p>$299.99</p>
+                        <h4 class="title">Ocean Table</h4>
+                        <p class="price">$299.99</p>
                         <button class="display__btn"><a class="display__button" href="#">Add To Cart</a></button>
                     </div>
                 </div>
@@ -61,8 +75,8 @@
                 <div class="description__container">
                     <div id="product__description">
                         <h2>New Collection</h2>
-                        <h4>Thin Ocean Table</h4>
-                        <p>$149.99</p>
+                        <h4 class="title">Thin Ocean Table</h4>
+                        <p class="price">$149.99</p>
                         <button class="display__btn"><a class="display__button" href="#">Add To Cart</a></button>
                     </div>
 
@@ -74,8 +88,8 @@
                 <div class="description__container">
                     <div id="product__description">
                         <h2>New Collection</h2>
-                        <h4>Framed Beach</h4>
-                        <p>$259.99</p>
+                        <h4 class="title">Framed Beach</h4>
+                        <p class="price">$259.99</p>
                         <button class="display__btn"><a class="display__button" href="#">Add To Cart</a></button>
                     </div>
                 </div>
@@ -88,7 +102,7 @@
         </div>
     </section>
 
-    <script src="script.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>

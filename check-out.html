@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Out</title>
+    <link rel="stylesheet" href="check-out.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"
+        integrity="sha384-/frq1SRXYH/bSyou/HUp/hib7RVN1TawQYja658FEOodR/FQBKVqT9Ol+Oz3Olq5" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="app.html" class="navbar__logo">Sams Resin</a>
+            <div class="navbar__toggle" id="mobile__menu">
+                <span class="bars"></span> <span class="bars"></span>
+                <span class="bars"></span>
+            </div>
+            <ul class="navbar__content">
+                <li class="items"><a href="app.html" class="links">Home</a></li>
+                <li class="items"><a href="product.html" class="links">Products</a>
+                <li class="items"><a href="#" id="contact-button" class="links">Contact</a></li>
+                <button class="navbar__btn"><a class="button" href="cart.html"><span id="cart-qty"></span><i `
+                            class="fa-solid fa-basket-shopping"></i></a></button>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home__page">
+        <form action="app.html" id="payment-info-box">
+            <h1 id="total-price">Total Price: $</h1>
+            <div class="card-section">
+                <h2>Payment</h2>
+                <div class="input-box">
+                    <span>Card Number</span>
+                    <input type="text" maxlength="16" minlength="16" required>
+                </div>
+                <div class="input-box">
+                    <span>Card Holder</span>
+                    <input type="text"  required>
+                </div>
+                <section class="flex-box">
+                    <div class="input-box">
+                        <span>Expiration MM</span>
+                        <select name="" id="month-input" required>
+                            <option value="month" selected disabled>month</option>
+                            <option value="01">January</option>
+                            <option value="02">February</option>
+                            <option value="03">March</option>
+                            <option value="04">April</option>
+                            <option value="05">May</option>
+                            <option value="06">June</option>
+                            <option value="07">July</option>
+                            <option value="08">August</option>
+                            <option value="09">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+                    </div>
+                    <div class="input-box">
+                        <span>Expiration YY</span>
+                        <select name="" id="year-input" required>
+                            <option value="year" selected disabled>year</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                            <option value="2027">2027</option>
+                            <option value="2028">2028</option>
+                            <option value="2029">2029</option>
+                            <option value="2030">2030</option>
+                            <option value="2031">3031</option>
+                        </select>
+                    </div>
+                    <div class="input-box">
+                        <span>cvv</span>
+                        <input type="text" maxlength="3" minlength="3" required>
+                    </div>
+                </section>
+            </div>
+            <div class="address-section">
+                <h2>Street Address</h2>
+                <div class="input-box">
+                    <span>Street Address</span>
+                    <input type="text" name="" id="address-input" required>
+                </div>
+                <div class="input-box">
+                    <span>City</span>
+                    <input type="text" name="" id="city-input" required>
+                </div>
+                <div class="input-box">
+                    <span>Province/State</span>
+                    <input type="text" name="" id="province-input" required>
+                </div>
+                <div class="input-box">
+                    <span>Postal Code/Zip Code</span>
+                    <input type="text" name="" id="postal-code-input" required>
+                </div>
+            </div>
+            <div class="submit-section">
+                <h2 id="place-order-title">Place Order</h2>
+                    <input type="submit" name="" id="submit-input">
+            </div>
+        </form>
+    </section>
+
+    <script src="check-out.js"></script>
+</body>
+
+</html>

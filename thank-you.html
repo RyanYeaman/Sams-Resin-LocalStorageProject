@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="cart.css">
+    <title>Thank You</title>
+    <link rel="stylesheet" href="thank-you.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"
         integrity="sha384-/frq1SRXYH/bSyou/HUp/hib7RVN1TawQYja658FEOodR/FQBKVqT9Ol+Oz3Olq5" crossorigin="anonymous">
-    <title>Cart</title>
 </head>
 
 <body>
@@ -24,7 +24,7 @@
             </div>
             <ul class="navbar__content">
                 <li class="items"><a href="app.html" class="links">Home</a></li>
-                <li class="items"><a href="product.html" class="links">Products</a< /li>
+                <li class="items"><a href="product.html" class="links">Products</a>
                 <li class="items"><a href="#" id="contact-button" class="links">Contact</a></li>
                 <button class="navbar__btn"><a class="button" href="cart.html"><span id="cart-qty"></span><i `
                             class="fa-solid fa-basket-shopping"></i></a></button>
@@ -32,8 +32,7 @@
         </div>
     </nav>
 
-    
-    <section id="cart__page">
+    <section id="home__page">
         <section id="contact-box" class="contact-info-hidden"> 
             <i class="fa-solid fa-xmark"></i>
             <ul id="contact-info">
@@ -46,22 +45,21 @@
             </ul>
         </section>
 
-
-        <hr>
-
-        <div id="cart-container" class="cart__container">
-            
-        </div>
-
-        <section class="check__out--container">
-            <button class="check__out--btn"><a class="check__out--button" href="check-out.html">Check Out</a></button>
-            <h2 id="total__amount">TOTAL: $<span>0.00</span></h2>
-        </section>
-
-        <hr>
+        <main class="appreciation-content">
+            <div class="appreciation-container">
+                <h1 class="thank-you-h1">Thank You</h1>
+                <h3 class="appreciation-h3" align="center">I appreciation the support and for ordering <br> one of my resin products!.</h3>
+                <p class="comfirmation-email" align="center">You will be sent an email of your order commfirmation. In the next 1-3 days you will
+                    receive another
+                    email when you product has been shipped.</p>
+                <a class="back-to-home" href="app.html"><p>Sams Resin</p></a>
+                <button class="continue-btn"><a class="continue-btn-link" href="product.html">Continue Shopping!</a></button>
+            </div>
+        </main>
 
     </section>
-    <script src="cart.js"></script>
+
+    <script src="thank-you.js"></script>
 </body>
 
 </html>

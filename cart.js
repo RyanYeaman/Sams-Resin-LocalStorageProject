@@ -110,7 +110,7 @@ function setIntialCart() {
                 <div class="description__container">
                     <h4>${product.cartItemH4}</h4>
                     <p class="total__price">${typeof product.cartItemPrice === "string" ? product.cartItemPrice : "$".concat(product.cartItemPrice)}</p>
-                    <input id="product-${i}-input" class="item__quantity" type="number" value="${product.qty}" />
+                    <input id="product-${i}-input" class="item__quantity" type="number" value="${product.qty}" min=0/>
                     <button class="remove__btn" onclick="removeConsolidated(${i})">
                         <a class="remove__button" href="#">Remove</a>
                     </button>
@@ -167,7 +167,7 @@ function removeConsolidated(i) {
 
     const existingCart = JSON.parse(localStorage.getItem("cart"));
 
-    existingCart.slice(i, 1);
+    existingCart.splice(i, 1);
 
     localStorage.setItem("cart", JSON.stringify(existingCart));
 
@@ -187,3 +187,19 @@ function removeConsolidated(i) {
 function convertPriceType(price) {
     return typeof price === "string" ? Number.parseFloat(price.slice(1)) : price;
 }
+
+//Contact Box Functionailty
+
+const contact = document.getElementById("contact-button");
+const contactInfo = document.getElementById("contact-box");
+const contactExitButton = document.querySelector(".fa-xmark");
+
+contact.addEventListener("click", () => {
+    contactInfo.classList.toggle("contact-info-hidden");
+    contactInfo.classList.toggle("contact-info-active");
+});
+
+contactExitButton.addEventListener("click", () => {
+    contactInfo.classList.remove("contact-info-active");
+    contactInfo.classList.add("contact-info-hidden");
+})

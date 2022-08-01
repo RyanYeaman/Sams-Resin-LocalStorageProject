@@ -6,114 +6,18 @@
 }
 
 body{
-    height: 100%;
+    height: 100vh;
 }
 
-#cart__page {
-    max-width: auto;
-    width: 100%;
-    height: auto;
-    min-height: 100vh;
+#home__page {
+    height: 100vh;
+    width: 100vw;
     background-image: url("images/pawel-czerwinski-ruJm3dBXCqw-unsplash.jpg");
     background-size: cover;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    flex-direction: column;
 }
-
-
-hr {
-    margin: 10px 0;
-}
-
-.product__img {
-    width: 100%;
-    max-height: 250px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-.cart__row {
-    border-radius: 8px;
-    background: #fff;
-    padding: 10px;
-    margin: 15px;
-    width: 300px;
-}
-
-.remove__button {
-    text-decoration: none;
-    outline: none;
-    color: #000000;
-    background:none;
-    transition: all 0.3s ease;
-}
-
-.remove__btn {
-    border: none;
-    padding: 2px;
-    background: #dfa9ff;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-.remove__button:hover, 
-.remove__btn:hover {
-    transform: translateY(-2px);
-}
-
-.check__out--container {
-    display: flex;
-    width: 40%;
-    justify-content: space-between;
-    margin: 10px 0 0 0;
-}
-
-.check__out--btn {
-    border: none;
-    outline: none;
-    width: 6rem;
-    border-radius: 4px;
-    background:#faccff;
-    transition: all 0.3s ease;
-}
-
-.check__out--button {
-    text-decoration: none;
-    color: #000000;
-    background-color: none;
-    transition: all 0.3s ease;
-}
-
-.check__out--btn:hover, 
-.remove__button:hover, 
-.remove__btn:hover,
-.total__amount:hover {
-    transform: translateY(-2px);
-    border-radius: 10px;
-    box-shadow: 5px 5px 50px rgba(0, 0, 0, 0.1);
-}
-
-#total__amount {
-    font-weight: 100;
-    background: #faccff;
-    padding: 5px;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    font-size: 1rem;
-}
-
-.cart__container {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-}
-
-.item__quantity {
-    width: 35px;
-}
-
 
 /* navbar section */
 .navbar {
@@ -223,102 +127,86 @@ hr {
     transform: translateY(-3px);
 }
 
-.car__row {
-    max-width: 500px;
-    display: none;
-    height: auto;
-    background: #e8e8e8;
-    margin: 5px 50px;
-    border-radius: 10px;
-    padding: 25px 25px;
-    box-shadow: 5px 5px 35px rgba(0, 0, 0, 0.3);
-}
-
-.__img {
-    width: 200px;
-}
-
-hr{
-    background: #000000;
-    border: none;
-    height: 1px;
-    width: 60%;
-}
-
-/* contact info */
-#contact-box.contact-info-hidden {
+#payment-info-box {
     display: flex;
     position: fixed;
-    background: #e8e8e8;
-    width: 300px;
-    height: 200px;
-    border-radius: 2rem;
-    box-shadow: 5px 5px 35px rgba(0, 0, 0, 0.3);
-    padding: 20px 20px 20px 40px;
-    top: 12vh;
-    right: 40px;
-    opacity: 0;
-}
-
-#contact-box.contact-info-active {
-    display: flex;
-    position: fixed;
-    background: #e8e8e8;
-    width: 300px;
-    height: 200px;
-    border-radius: 2rem;
-    box-shadow: 5px 5px 35px rgba(0, 0, 0, 0.3);
-    padding: 20px 20px 20px 40px;
-    top: 85px;
-    left: 40px;
-    opacity: 100;
-    animation: fadeVisibilty 1s;
-}
-
-.fa-xmark {
-    position: relative;
-    transition: all 0.3s;
-    right: -275px;
-    top: -15px;
-    width: 20px;
-    height: 20px;
-    font-size: 1.4rem;
-    cursor: pointer;
-}
-
-#contact-info {
-    display: flex;
-    position: relative;
-    justify-content: space-evenly;
-    align-items: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
     flex-direction: column;
+    justify-content: center;
 }
 
-#contact-list, #social-media-list {
-    font-size: 1.4rem;
-    font-weight: 700;
-}
-.fa-xmark:hover {
-    transform: translateY(-2px);
+.flex-box {
+    display: flex;
+    align-items: center;
 }
 
-@media (max-width: 750px) {
-    #total__amount {
-        font-size:1rem;
-        margin-left: 5px;
+#total-price {
+    margin-top: 50px;
+}
+
+.card-section {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 175px;
+}
+
+.address-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 200px;
+    margin: 20px 0;
+}
+
+#submit-input {
+    border: none;
+    width: 150px;
+    height: 30px;
+    border-radius: 4rem;
+}
+
+.submit-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    height: 75px;
+}
+
+#place-order-title {
+    margin-bottom: 10px;
+}
+
+@media(max-width:690px) {
+    .flex-box {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        margin-top: 10px;
+        height: 75px;
     }
 
-    .check__out--btn {
-        width: 200px;
+    .card-section{
+        font-size: 0.7em;
     }
-}
 
+    .address-section {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.7em;
+        max-height: 150px;
+    }
+    
+
+}
 
 @media (min-width: 320px) and (max-width: 480px) {
-
-    #home__page {
-        height: 100vh;
-    }
 
     .navbar__container {
         display: flex;
