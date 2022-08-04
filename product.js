@@ -19,13 +19,13 @@ function ready() {
     }
 
     //checking for exisitng cart
+
     const exisitingCart = JSON.parse(localStorage.getItem("cart"))
 
     //setting qty
     if (exisitingCart) {
-        document.getElementById("cart-qty").innerHTML = `${exisitingCart.length}`;
+        document.getElementById("cart-qty").innerHTML = exisitingCart.length;
     }
-    updateCartQty()
 }
 
 //this function will allow us add items into the our localStorageDB to pass over to our cart page.
@@ -38,33 +38,16 @@ function addToCartClicked(event) {
     let img = shopItemPropertys.getElementsByClassName('product__img')[0].src
     let price = shopItemPropertys.getElementsByClassName('price')[0].innerText
     let cartItem = { cartItemImg: img, cartItemH4: h4, cartItemPrice: price }
-    saveToLocalStorage(cartItem);
-    updateCartQty()
+    saveToLocalStorage(cartItem)
 }
 
 function saveToLocalStorage(cartItem) {
     const exisitingCart = JSON.parse(localStorage.getItem("cart"));
-
-    localStorage.setItem("cart", JSON.stringify(exisitingCart ? [...exisitingCart, cartItem] : [cartItem]));
-
-    console.log(cartItem, JSON.parse(localStorage.getItem("cart")));
-
-}
-
-//This function will update the cart-qty.
-function updateCartQty() {
-    let quantity = 0;
-
-    const cartQty = document.querySelector("#cart-qty");
-
-    const exisitingCart = JSON.parse(localStorage.getItem("cart"));
     
-    if(exisitingCart) {
-        for(const items of exisitingCart) {
-            quantity += +(items.qty);
-        }
-    }
-    cartQty.innerHTML = `${quantity}`
+    localStorage.setItem("cart", JSON.stringify(exisitingCart ? [...exisitingCart, cartItem] : [cartItem]));
+    
+    console.log(cartItem, JSON.parse(localStorage.getItem("cart")));
+    
 }
 
 //Contact Box Functionailty
